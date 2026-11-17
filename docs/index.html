@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>净卷宝 PaperClean — 拍试卷去手写还原空白卷 · 填空题智能留白错题组卷打印</title>
+  <meta name="description" content="100% 本地离线拍试卷去阴影漂白、双通道抹除红蓝批改叉号与铅笔手写、填空解答题智能插入解题空白带、AirPrint 零重叠 A4 打印。无摇一摇广告，单张免费，Pro 永久买断仅 ¥15。">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="净卷宝">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icon-192.svg">
+  <link rel="apple-touch-icon" href="icon-192.svg">
+  <link rel="canonical" href="https://a3152557994-ship-it.github.io/paper-clean/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="净卷宝 PaperClean — 拍试卷去手写还原空白卷 · 填空题智能留白打印">
+  <meta property="og:description" content="点开即体验：一拉对比滑块，满篇红叉+蓝字作答+台灯阴影瞬间还原崭新纯白 A4 试卷！支持填空题加宽留白与零重叠 AirPrint 打印。">
+  <meta property="og:url" content="https://a3152557994-ship-it.github.io/paper-clean/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+  <link rel="llms-txt" href="llms.txt">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://a3152557994-ship-it.github.io/paper-clean/#app",
+        "name": "净卷宝 PaperClean — 拍试卷去手写还原空白卷与智能留白打印台",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "iOS, iPadOS, macOS, Windows, Android, Web PWA",
+        "url": "https://a3152557994-ship-it.github.io/paper-clean/",
+        "description": "纯浏览器本地像素级试卷去阴影漂白、HSV 红蓝批改与铅笔手写双通道擦除、填空解答题智能加宽留白插入器与无重叠 A4 AirPrint 打印工作台。",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "基础单张净卷与打印免费版",
+            "price": "0",
+            "priceCurrency": "CNY",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro 永久买断版（填空留白精修导出 + 批量错题组卷打印）",
+            "price": "15.00",
+            "priceCurrency": "CNY",
+            "availability": "https://schema.org/InStock",
+            "url": "https://a3152557994-ship-it.github.io/paper-clean/#pricing"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://a3152557994-ship-it.github.io/paper-clean/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "孩子的试卷照片会上传到云端服务器吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "绝不上传。净卷宝 100% 在手机或电脑浏览器本地 Canvas 内完成分块亮度漂白与 HSV 双通道笔迹擦除，断网飞行模式下依然可用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么传统去手写软件打印出来孩子没法做题？净卷宝怎么解决？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "传统软件机械裁切拼图，常导致文字重叠或填空/解答题间距太挤。净卷宝内置「填空/解答题加宽留白插入器」与行间空白安全分页算法，一键插入纯白书写区并支持 AirPrint 零重叠 A4 打印。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="./">
+        <img class="brand-icon" src="icon-192.svg" alt="净卷宝图标">
+        <span>净卷宝 PaperClean</span>
+        <span id="pro-status-badge" class="brand-badge">零广告 · 本地离线</span>
+      </a>
+      <div class="topbar-actions">
+        <label class="btn btn-primary btn-sm" for="file-upload">
+          📷 拍试卷 / 选照片
+        </label>
+        <input id="file-upload" type="file" accept="image/*" multiple class="hidden">
+        <a href="#pricing" class="btn btn-outline btn-sm">¥15 永久买断</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div>
+          <div class="hero-eyebrow">✨ 告别 ¥168/年自动续费 · 零摇一摇开屏广告</div>
+          <h1>拍试卷秒去红叉与手写，填空解答智能留白直连打印</h1>
+          <p>
+            无需找真试卷——下方已为您加载一张<strong>仿真台灯斜拍 + 满篇红叉批改 + 蓝笔铅笔作答</strong>的数学卷，左右拖动蓝色对比滑块立刻见证「灰黄错题卷秒变崭新纯白 A4 卷」！
+          </p>
+          <div class="hero-cta-row">
+            <label class="btn btn-emerald btn-lg" for="file-upload">
+              📷 上传手机里的试卷照片（支持多选组卷）
+            </label>
+            <button id="btn-demo-spacers" class="btn btn-ghost-light btn-lg" type="button">
+              ➕ 一键体验「填空/解答题加宽留白」
+            </button>
+          </div>
+        </div>
+        <div class="hero-compare-card">
+          <h3>为什么超过万名家长换用净卷宝？</h3>
+          <ul class="vs-list">
+            <li><span>✅</span><span><strong>治好「没空写字」</strong>：点一下题目下方即刻插入 120–260px 解题空白带，不再挤夹缝。</span></li>
+            <li><span>✅</span><span><strong>治好「导出重叠」</strong>：A4 自动检测行间空白分页，AirPrint / 家庭打印机零重叠不断行。</span></li>
+            <li><span>✅</span><span><strong>治好「包年刺客」</strong>：单张净卷与打印<strong>永久免费</strong>，批量组卷 + 留白导出仅 <strong>¥15 买断终身</strong>。</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Workbench -->
+    <section class="workbench" aria-label="试卷净卷精修工作台">
+      <div class="card">
+        <div class="stage-toolbar">
+          <div class="mode-pills" role="tablist">
+            <button class="mode-pill active" data-mode="split" type="button">↔ 前后对比滑块</button>
+            <button class="mode-pill" data-mode="spacer" type="button">➕ 插入解题留白带</button>
+            <button class="mode-pill" data-mode="eraser" type="button">⬜ 矩形留白橡皮框</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button id="btn-reset-demo" class="btn btn-outline btn-sm" type="button">重载仿真错题卷</button>
+            <button id="btn-download-png" class="btn btn-outline btn-sm" type="button">⬇ 导出高清空白卷 PNG</button>
+            <button id="btn-print-a4" class="btn btn-primary btn-sm" type="button">🖨️ A4 无重叠打印 / AirPrint</button>
+          </div>
+        </div>
+
+        <div id="mode-hint" class="mode-hint-bar">
+          <span id="mode-hint-text">👉 左右拖动蓝色滑块对比净卷前后效果：左侧为斜拍阴影+红蓝笔原图，右侧为实时擦除还原的纯白打印底。</span>
+          <div id="mode-sub-actions" style="display:flex;gap:6px;">
+            <button id="btn-auto-sweep" class="btn btn-outline btn-sm" type="button">演示对比横扫</button>
+          </div>
+        </div>
+
+        <div id="canvas-viewport" class="canvas-viewport">
+          <div id="paper-frame" class="paper-frame">
+            <canvas id="canvas-after" class="paper-canvas"></canvas>
+            <div id="before-layer" class="before-layer" style="width: 48%;">
+              <canvas id="canvas-before" class="paper-canvas"></canvas>
+            </div>
+            <div id="split-divider" class="split-divider" style="left: 48%;">
+              <div class="split-handle" title="左右拖动对比">⇄</div>
+            </div>
+            <div id="badge-before" class="corner-badge badge-before">原图：阴影 + 红叉 + 蓝笔</div>
+            <div id="badge-after" class="corner-badge badge-after">净卷后：纯白 A4 底</div>
+            <canvas id="canvas-overlay" class="interaction-overlay hidden"></canvas>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="stat-item">
+            <strong id="stat-shadow">--</strong>
+            <span>漂白阴影像素</span>
+          </div>
+          <div class="stat-item">
+            <strong id="stat-color">--</strong>
+            <span>抹除红蓝/荧光笔</span>
+          </div>
+          <div class="stat-item">
+            <strong id="stat-pencil">--</strong>
+            <span>分离浅铅笔字</span>
+          </div>
+          <div class="stat-item">
+            <strong id="stat-spacer">+0 px</strong>
+            <span>新增解题留白高度</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Controls Sidebar -->
+      <aside class="sidebar-stack">
+        <div class="card">
+          <h2 class="panel-title">
+            <span>🎛️ 双通道净卷精调</span>
+            <button id="btn-default-params" class="btn btn-outline btn-sm" type="button">恢复默认</button>
+          </h2>
+
+          <label class="check-row">
+            <input id="chk-bleach" type="checkbox" checked>
+            <span>自适应分块去台灯阴影 &amp; 纸底漂白</span>
+          </label>
+
+          <label class="check-row">
+            <input id="chk-color" type="checkbox" checked>
+            <span>抹除红笔批改 / 蓝笔圆珠笔 / 荧光笔</span>
+          </label>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>彩笔识别灵敏度 (HSV)</span>
+              <span id="lbl-color-sat" class="val">0.20</span>
+            </div>
+            <input id="rng-color-sat" type="range" min="0.10" max="0.40" step="0.02" value="0.20">
+          </div>
+
+          <div class="control-group">
+            <div class="control-label">
+              <span>浅灰铅笔 vs 黑色铅印分离阈值</span>
+              <span id="lbl-pencil" class="val">166</span>
+            </div>
+            <input id="rng-pencil" type="range" min="115" max="225" step="1" value="166">
+          </div>
+
+          <div class="control-group" style="margin-bottom:4px;">
+            <div class="control-label">
+              <span>黑色印刷题干锐化加深</span>
+              <span id="lbl-contrast" class="val">0.65</span>
+            </div>
+            <input id="rng-contrast" type="range" min="0.10" max="1.30" step="0.05" value="0.65">
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="panel-title">
+            <span>📏 填空/解答加宽留白区</span>
+            <span style="font-size:12px;color:var(--accent);font-weight:700;">痛点绝杀</span>
+          </h2>
+          <p style="margin:0 0 10px;font-size:12.5px;color:var(--ink-secondary);">
+            切到「➕ 插入解题留白带」后在试卷题目下方点击即可撑开纯白书写空间：
+          </p>
+          <div class="control-group">
+            <div class="control-label">
+              <span>单次点击插入留白高度</span>
+              <span id="lbl-spacer-h" class="val">140 px</span>
+            </div>
+            <input id="rng-spacer-h" type="range" min="60" max="320" step="20" value="140">
+          </div>
+          <label class="check-row">
+            <input id="chk-dashed-guide" type="checkbox" checked>
+            <span>在留白区印制浅灰虚线书写辅助线</span>
+          </label>
+          <div style="display:flex;gap:8px;">
+            <button id="btn-quick-spacers" class="btn btn-outline btn-sm" style="flex:1;" type="button">自动加 2 处留白预览</button>
+            <button id="btn-clear-edits" class="btn btn-outline btn-sm" type="button">清空留白/橡皮</button>
+          </div>
+          <div id="spacer-list" class="spacer-list"></div>
+        </div>
+
+        <div class="card">
+          <h2 class="panel-title">
+            <span>🗂️ 错题批量组卷队列</span>
+            <span id="lbl-a4-pages" style="font-size:12px;color:var(--ink-muted);">共 1 页 A4</span>
+          </h2>
+          <div id="batch-list" class="batch-list"></div>
+          <label class="btn btn-outline btn-sm" style="width:100%;" for="file-upload">
+            ➕ 继续添加错题照片组卷
+          </label>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Pricing & Offline Ed25519 Activation -->
+    <section id="pricing" class="card pricing-card">
+      <h2 style="margin:0 0 6px;font-size:21px;">清爽买断定价 · 拒绝 ¥168/年自动续费套路</h2>
+      <p style="margin:0;font-size:14px;color:var(--ink-secondary);">
+        基础单张去手写与打印永久免费；一顿早餐钱买断全部高阶排版能力，手机、iPad、电脑浏览器通用。
+      </p>
+
+      <div class="pricing-grid">
+        <div class="tier-box">
+          <div>
+            <span class="brand-badge" style="background:#f1f5f9;color:#334155;border-color:#cbd5e1;">免登录即用</span>
+            <div class="price-big">¥0 <small>永久免费</small></div>
+            <ul class="feature-ul">
+              <li>单张试卷自适应去台灯阴影与纸张底色漂白</li>
+              <li>红笔批改、蓝笔作答、荧光笔与浅铅笔双通道擦除</li>
+              <li>矩形留白橡皮框局部涂抹修补</li>
+              <li>单张高清 PNG 下载 &amp; 单张系统 A4 / AirPrint 打印</li>
+            </ul>
+          </div>
+          <label class="btn btn-outline" for="file-upload">直接免费传图净卷</label>
+        </div>
+
+        <div class="tier-box pro">
+          <div>
+            <span class="brand-badge">家长高频刚需 · 一次买断终身可用</span>
+            <div class="price-big">¥15 <small>永久买断 · 无包年续费</small></div>
+            <ul class="feature-ul">
+              <li><strong>解锁「填空/解答题加宽留白带」精修高清导出与打印</strong>（彻底解决打印后没地方写过程）</li>
+              <li><strong>解锁多张错题照片批量组卷队列</strong>（期中期末 5–20 张错题一次合成整套练习卷）</li>
+              <li><strong>A4 智能行间空白切分防重叠排版</strong>（不压字、不腰斩公式、完美适配家庭打印机与 AirPrint）</li>
+              <li>离线 <code>OPC1.</code> Ed25519 激活码本地秒验，支持添加到 iPhone / iPad 主屏幕离线使用</li>
+            </ul>
+          </div>
+          <button id="btn-open-order" class="btn btn-primary btn-lg" type="button">
+            ⚡ 立即买断获取激活码（¥15 终身）
+          </button>
+        </div>
+      </div>
+
+      <div class="license-box">
+        <input
+          id="input-license"
+          class="input-text"
+          type="text"
+          placeholder="粘贴您的激活码：OPC1.eyJ2IjoxLCJwIjoicGFwZXItY2xlYW4i...sig"
+          aria-label="OPC1 离线激活码"
+        >
+        <button id="btn-verify-license" class="btn btn-emerald" type="button">🔐 本地验签解锁 Pro</button>
+        <button id="btn-clear-license" class="btn btn-outline btn-sm hidden" type="button">退出激活状态</button>
+      </div>
+      <div id="license-msg" class="status-msg hidden"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card" style="margin-bottom:28px;">
+      <h2 style="margin:0 0 10px;font-size:19px;">家长常见问题</h2>
+      <div class="faq-item">
+        <details open>
+          <summary>拍的试卷有暗角台灯阴影、老师红笔刚好压在黑字上，会连题目一起擦掉吗？</summary>
+          <p>不会。净卷宝先通过 32×32 分块高分位亮度估计还原纯白纸底，再通过白平衡 HSV 色相分离红蓝彩笔，并对中性低饱和度的深黑油墨印刷字设有专门的保护锁，擦净红叉的同时把黑色题干锐化得像新印出来一样。</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details>
+          <summary>iPhone / iPad 怎么像原生 App 一样离线使用并连接家里打印机？</summary>
+          <p>用 Safari 打开本页，点底部「分享 → 添加到主屏幕」即可生成无地址栏的独立离线图标；点击页面右上角「A4 无重叠打印 / AirPrint」可直接呼叫家里惠普、爱普生、兄弟、佳能无线打印机。</p>
+        </details>
+      </div>
+      <div class="faq-item" style="border-bottom:none;">
+        <details>
+          <summary>¥15 买断后怎么激活？换设备还能用吗？</summary>
+          <p>联系下方 QQ 邮箱或 Gmail 下单后将收到一串以 <code>OPC1.</code> 开头的数字签名激活码，在手机、平板、电脑浏览器粘贴即可离线永久激活，不绑死单台机器。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>净卷宝 PaperClean</strong> · 100% 本地离线像素级净卷工作台 · 联系与发码：
+        <a href="mailto:3152557994@qq.com">3152557994@qq.com</a> /
+        <a href="mailto:a3152557994@gmail.com">a3152557994@gmail.com</a>
+      </div>
+      <div style="display:flex;gap:14px;">
+        <a href="llms.txt">/llms.txt</a>
+        <a href="manifest.webmanifest">PWA Manifest</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="https://github.com/a3152557994-ship-it/paper-clean" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Order Modal -->
+  <div id="order-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+    <div class="modal-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h3 id="order-modal-title" style="margin:0;font-size:18px;">解锁净卷宝 Pro 永久买断版（¥15）</h3>
+        <button id="btn-close-modal" class="btn btn-outline btn-sm" type="button">✕</button>
+      </div>
+      <p style="margin:0;font-size:13.5px;color:var(--ink-secondary);">
+        拒绝包年续费套路！发送下方自动生成的订单摘要至联系邮箱，即刻签发专属 <code>OPC1.</code> 永久离线激活码（解锁<strong>填空加宽留白精修导出 + 多张错题批量无重叠组卷打印</strong>）：
+      </p>
+      <div id="order-brief-box" class="order-brief"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <a id="mailto-qq" class="btn btn-primary" href="#">📧 QQ邮箱下单 (3152557994@qq.com)</a>
+        <a id="mailto-gmail" class="btn btn-emerald" href="#">📧 Gmail 下单</a>
+        <button id="btn-copy-order" class="btn btn-outline" type="button">📋 复制订单信息</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Zero-Overlap A4 Print Container -->
+  <div id="print-mount" aria-hidden="true"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
